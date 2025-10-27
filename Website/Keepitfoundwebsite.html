@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>KeepItFound — We deliver your MVP in 4 weeks</title>
+  <style>
+    :root{
+      --bg:#0b1220; --panel:#0f1726; --accent:#00bcd4; --muted:#9aa6b2; --glass: rgba(255,255,255,0.04);
+      --card-shadow: 0 8px 20px rgba(2,6,23,0.6);
+      --radius:12px;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;background:linear-gradient(180deg,var(--bg),#07101a);color:#e6f0f3}
+    a{color:inherit;text-decoration:none}
+
+    /* header */
+    header{position:fixed;top:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;padding:16px 28px;background:linear-gradient(180deg,rgba(5,10,18,0.6),rgba(5,10,18,0.35));backdrop-filter:blur(6px);z-index:40}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#007c91);display:flex;align-items:center;justify-content:center;font-weight:700;color:#021;} 
+    .brand h1{font-size:18px;margin:0;color:var(--accent)}
+    nav{display:flex;gap:18px;align-items:center}
+    nav a{color:var(--muted);font-weight:600}
+    .cta{background:var(--accent);color:#042;padding:8px 12px;border-radius:8px;font-weight:700}
+
+    /* mobile nav */
+    .menu-btn{display:none;background:transparent;border:1px solid rgba(255,255,255,0.04);padding:8px;border-radius:8px}
+
+    main{padding-top:92px}
+
+    /* hero */
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:36px;align-items:center;padding:48px}
+    .hero .lead{max-width:760px}
+    .tag{display:inline-block;padding:6px 10px;background:var(--glass);border-radius:999px;color:var(--accent);font-weight:700;margin-bottom:16px}
+    .title{font-size:40px;line-height:1.02;margin-bottom:14px;color:#e9fbff}
+    .subtitle{color:var(--muted);font-size:16px;margin-bottom:20px}
+    .hero .actions{display:flex;gap:12px}
+    .btn{padding:12px 16px;border-radius:10px;border:none;cursor:pointer;font-weight:700}
+    .btn-primary{background:var(--accent);color:#022}
+    .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.05);color:var(--muted)}
+
+    .card{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));padding:20px;border-radius:14px;box-shadow:var(--card-shadow)}
+    .founder{display:flex;gap:14px;align-items:center}
+    .avatar{width:72px;height:72px;border-radius:12px;background:linear-gradient(135deg,#fff8,#0003);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--accent)}
+    .founder h3{margin:0;color:#fff}
+    .founder p{margin:0;color:var(--muted);font-size:14px}
+
+    /* sections */
+    section{padding:56px 28px}
+    .section-head{display:flex;align-items:end;justify-content:space-between;gap:16px}
+    .section-head h2{color:var(--accent);margin:0;font-size:22px}
+    .section-head p{color:var(--muted);margin:0}
+
+    /* portfolio */
+    .projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:22px}
+    .proj{padding:18px;background:var(--panel);border-radius:12px}
+    .proj h4{margin:0 0 8px 0;color:#e9fbff}
+    .proj p{margin:0;color:var(--muted);font-size:14px}
+
+    /* team */
+    .team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin-top:18px}
+    .member{background:var(--panel);padding:14px;border-radius:10px;text-align:center}
+    .member h5{margin:10px 0 4px 0;color:#fff}
+    .member span{font-size:13px;color:var(--muted)}
+
+    /* testimonials */
+    .testi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:18px}
+    .testi{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));padding:18px;border-radius:12px}
+    .quote{font-style:italic;color:#dff6fa}
+    .who{margin-top:10px;color:var(--muted);font-weight:700}
+
+    /* contact */
+    .contact-wrap{display:grid;grid-template-columns:1fr 360px;gap:20px}
+    form input, form textarea{width:100%;padding:12px;border-radius:10px;border:none;background:rgba(255,255,255,0.02);color:inherit;margin-bottom:10px}
+    form button{width:100%;padding:12px;border-radius:10px;border:none;background:var(--accent);color:#022;font-weight:800}
+
+    footer{padding:24px;text-align:center;color:var(--muted);border-top:1px solid rgba(255,255,255,0.02)}
+
+    /* responsive */
+    @media(max-width:980px){.hero{grid-template-columns:1fr;}.contact-wrap{grid-template-columns:1fr}.menu-btn{display:inline-flex}.menu{display:none;position:absolute;right:18px;top:66px;background:var(--panel);padding:12px;border-radius:10px;box-shadow:var(--card-shadow)}nav.mobile-open{display:flex;flex-direction:column;gap:12px}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <div class="logo">K</div>
+      <div>
+        <h1>KeepItFound</h1>
+        <div style="font-size:12px;color:var(--muted)">We deliver your MVP in 4 weeks</div>
+      </div>
+    </div>
+
+    <nav id="navlinks">
+      <a href="#home">Home</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#team">Team</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#contact">Contact</a>
+      <a class="cta" href="#contact">Get Started</a>
+    </nav>
+
+    <button class="menu-btn" id="menuBtn">☰</button>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="lead">
+        <div class="tag">MVP & Product Studio</div>
+        <div class="title">Build. Launch. Learn — MVPs delivered in 4 weeks.</div>
+        <div class="subtitle">KeepItFound helps founders and studios ship working MVPs quickly. Mobile apps, web dashboards, and photo-studio solutions — we focus on speed and quality.</div>
+
+        <div class="actions" style="margin-top:18px">
+          <button class="btn btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get a Quote</button>
+          <button class="btn btn-ghost" onclick="document.getElementById('portfolio').scrollIntoView({behavior:'smooth'})">See Portfolio</button>
+        </div>
+
+        <div style="margin-top:20px;display:flex;gap:12px;align-items:center">
+          <div style="color:var(--muted);font-size:13px">Trusted by</div>
+          <div style="display:flex;gap:8px;align-items:center">
+            <div style="padding:6px 8px;background:var(--glass);border-radius:8px;font-size:13px">Studio A</div>
+            <div style="padding:6px 8px;background:var(--glass);border-radius:8px;font-size:13px">StartupX</div>
+            <div style="padding:6px 8px;background:var(--glass);border-radius:8px;font-size:13px">EduLab</div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="card">
+        <div class="founder">
+          <div class="avatar">SK</div>
+          <div>
+            <h3>Shabari Kumar</h3>
+            <p style="color:var(--muted)">Founder & CEO — KeepItFound</p>
+          </div>
+        </div>
+        <hr style="border:none;height:1px;background:rgba(255,255,255,0.03);margin:14px 0;border-radius:2px">
+        <div style="color:var(--muted);font-size:14px">We specialize in building streamlined MVPs: fast iterations, clear scope, and a launch-ready product in 4 weeks.</div>
+      </aside>
+    </section>
+
+    <section id="portfolio">
+      <div class="section-head">
+        <div>
+          <h2>Portfolio</h2>
+          <p>Selected MVPs and projects we've built for clients.</p>
+        </div>
+      </div>
+
+      <div class="projects">
+        <article class="proj">
+          <h4>Student Dashboard</h4>
+          <p>Responsive dashboard for students: attendance, assignments, progress tracking, and teacher messaging.</p>
+        </article>
+
+        <article class="proj">
+          <h4>Studio Photo Gallery</h4>
+          <p>Secure gallery for photo studios where customers access photos using a unique reference code and download high-res images.</p>
+        </article>
+
+        <article class="proj">
+          <h4>Social Media Chatting App</h4>
+          <p>Lightweight chat app with profiles, real-time messaging, and media sharing — focused on quick MVP rollout.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="team">
+      <div class="section-head">
+        <div>
+          <h2>Our Team</h2>
+          <p>Core team members driving KeepItFound.</p>
+        </div>
+      </div>
+
+      <div class="team-grid">
+        <div class="member">
+          <div style="width:72px;height:72px;margin:0 auto;border-radius:12px;background:linear-gradient(135deg,var(--accent),#006d82);display:flex;align-items:center;justify-content:center;font-weight:800">SK</div>
+          <h5>Shabari Kumar</h5>
+          <span>Founder & CEO</span>
+        </div>
+
+        <div class="member">
+          <div style="width:72px;height:72px;margin:0 auto;border-radius:12px;background:linear-gradient(135deg,#6f7,#0a3);display:flex;align-items:center;justify-content:center;font-weight:800">GK</div>
+          <h5>Girish Kumar</h5>
+          <span>Co-founder</span>
+        </div>
+
+        <div class="member">
+          <div style="width:72px;height:72px;margin:0 auto;border-radius:12px;background:linear-gradient(135deg,#f8b,#b40);display:flex;align-items:center;justify-content:center;font-weight:800">HK</div>
+          <h5>Harish Kumar</h5>
+          <span>CTO</span>
+        </div>
+
+        <div class="member">
+          <div style="width:72px;height:72px;margin:0 auto;border-radius:12px;background:linear-gradient(135deg,#bcd,#46a);display:flex;align-items:center;justify-content:center;font-weight:800">B</div>
+          <h5>Bala</h5>
+          <span>CFO</span>
+        </div>
+
+        <div class="member">
+          <div style="width:72px;height:72px;margin:0 auto;border-radius:12px;background:linear-gradient(135deg,#9cf,#06a);display:flex;align-items:center;justify-content:center;font-weight:800">K</div>
+          <h5>Kabilash</h5>
+          <span>Frontend Dev</span>
+        </div>
+
+        <div class="member">
+          <div style="width:72px;height:72px;margin:0 auto;border-radius:12px;background:linear-gradient(135deg,#c9f,#509);display:flex;align-items:center;justify-content:center;font-weight:800">M</div>
+          <h5>Mukilan</h5>
+          <span>Backend Dev</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="testimonials">
+      <div class="section-head">
+        <div>
+          <h2>Testimonials</h2>
+          <p>What our U.S. clients say about KeepItFound.</p>
+        </div>
+      </div>
+
+      <div class="testi-grid">
+        <div class="testi">
+          <div class="quote">“KeepItFound built our photo gallery MVP in under a month — clean UI, fast delivery, and great communication. Highly recommended.”</div>
+          <div class="who">— Emily R., Product Manager, New York, USA</div>
+        </div>
+        <div class="testi">
+          <div class="quote">“The team was focused on outcomes. We launched a student dashboard MVP that students actually used within 3 weeks.”</div>
+          <div class="who">— Jason M., CTO, Austin, TX, USA</div>
+        </div>
+        <div class="testi">
+          <div class="quote">“Their delivery speed and quality surprised us — shipped a chatting app MVP with reliable messaging and media sharing.”</div>
+          <div class="who">— Sarah L., Founder, San Francisco, USA</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="section-head">
+        <div>
+          <h2>Contact Us</h2>
+          <p>Tell us about your idea — we'll scope and deliver an MVP in 4 weeks.</p>
+        </div>
+      </div>
+
+      <div class="contact-wrap">
+        <div class="card">
+          <form id="contactForm">
+            <input type="text" name="name" placeholder="Your name" required />
+            <input type="email" name="email" placeholder="Your email" required />
+            <input type="text" name="project" placeholder="Project type (e.g., Studio Photo Gallery)" />
+            <textarea name="message" rows="6" placeholder="Tell us briefly about your idea"></textarea>
+            <button type="submit">Request Quote</button>
+          </form>
+          <div style="margin-top:12px;color:var(--muted);font-size:13px">Or email us at <strong>hello@keepitfound.com</strong></div>
+        </div>
+
+        <aside class="card">
+          <h3 style="margin-top:0;color:var(--accent)">Quick Info</h3>
+          <p style="color:var(--muted)">Average delivery: <strong>4 weeks</strong></p>
+          <p style="color:var(--muted)">Support: Mon - Sat, 9:00 - 18:00 (IST)</p>
+          <p style="color:var(--muted)">Location: Chennai, India</p>
+        </aside>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    © 2025 KeepItFound — Built with care. &nbsp;|&nbsp; <span style="color:var(--muted)">Founder & CEO: Shabari Kumar</span>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('menuBtn');
+    const nav = document.getElementById('navlinks');
+    menuBtn.addEventListener('click', ()=>{
+      nav.classList.toggle('mobile-open');
+    });
+
+    // Smooth scroll for older browsers fallback
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', function(e){
+        const target = document.querySelector(this.getAttribute('href'));
+        if(target){
+          e.preventDefault();
+          target.scrollIntoView({behavior:'smooth', block:'start'});
+          if(nav.classList.contains('mobile-open')) nav.classList.remove('mobile-open');
+        }
+      });
+    });
+
+    // Contact form (dummy)
+    document.getElementById('contactForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      const name = this.name.value || 'Founder';
+      alert('Thanks, ' + name + '! We received your request. We will contact you at the email provided.');
+      this.reset();
+    });
+  </script>
+</body>
+</html>
